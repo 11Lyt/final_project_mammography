@@ -85,7 +85,6 @@ The uploaded DICOM image is processed using the same preprocessing pipeline used
 
 ```text
 final_project_mammography/
-│
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -96,23 +95,26 @@ final_project_mammography/
 │
 ├── model/
 │   ├── README.md
-│   ├── hyps/
-│   │   ├── hyp.overfit-test.yaml
-│   │   ├── hyp.transfer-low-lr.yaml
-│   │   ├── hyp.tune-B-noaug.yaml
-│   │   ├── hyp.tune-C-clsweight.yaml
-│   │   └── hyp.tune-D-combined.yaml
-│   ├── train.py
-│   ├── common.py
-│   ├── yolo.py
-│   ├── yolov9-imagenet-densenet121.yaml
-│   └── yolov9-rad-densenet121.yaml
+│   ├── train_freeze_15.py
+│   ├── data/
+│   │   └── hyps/
+│   │       ├── hyp.overfit-test.yaml
+│   │       ├── hyp.transfer-low-lr.yaml
+│   │       ├── hyp.tune-B-noaug.yaml
+│   │       ├── hyp.tune-C-clsweight.yaml
+│   │       └── hyp.tune-D-combined.yaml
+│   └── models/
+│       ├── common.py
+│       ├── yolo.py
+│       └── detect/
+│           ├── yolov9-imagenet-densenet121.yaml
+│           └── yolov9-rad-densenet121.yaml
 │
 ├── notebooks/
 │   └── mammography_training_and_evaluation.ipynb
 │
 └── app/
-    └── model_user_interface.ipynb
+    └── FP_gradio_app.py
 ```
 
 ## Installation
@@ -156,12 +158,12 @@ The modified YOLOv9 implementation is located in the `model/` directory.
 
 The RadImageNet model configuration:
 ```text
-model/yolov9-rad-densenet121.yaml
+model/models/detect/yolov9-rad-densenet121.yaml
 ```
 
 The ImageNet comparison model:
 ```text
-model/yolov9-imagenet-densenet121.yaml
+model/models/detect/yolov9-imagenet-densenet121.yaml
 ```
 
 Training is performed using the modified `model/train.py` script with the required model, dataset and hyperparameter configurations.
@@ -173,12 +175,10 @@ notebooks/mammography_training_and_evaluation.ipynb
 ```
 
 ### 4. Gradio Application
-The demonstration interface is provided in:
+Run the demonstration interface using:
 ```text
-app/model_user_interface.ipynb
+python app/FP_gradio_app.py
 ```
-
-Run the notebook and launch the Gradio interface to upload a mammography DICOM image and perform lesion detection.
 
 ## References
 - Lee, R.S. et al. (2017). **A curated mammography data set for use in computer-aided detection and diagnosis research.** *Scientific Data*, 4, 170177.
@@ -190,6 +190,9 @@ Run the notebook and launch the Gradio interface to upload a mammography DICOM i
 - Shen, L. et al. (2019). **Deep Learning to Improve Breast Cancer Detection on Screening Mammography.** *Scientific Reports*, 9, 12495.
 
 - Wang, C.-Y., Yeh, I.-H. and Liao, H.-Y.M. (2024). **YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information.** arXiv:2402.13616.
+
+### INbreast
+Downloaded from [INbreast 2012 by tommyngx on Kaggle](https://www.kaggle.com/datasets/tommyngx/inbreast2012).
 
 ### Source Repositories
 - YOLOv9: `WongKinYiu/yolov9` at https://github.com/WongKinYiu/yolov9.git
