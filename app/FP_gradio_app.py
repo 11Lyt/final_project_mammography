@@ -27,9 +27,7 @@ if str(YOLOV9_ROOT) not in sys.path:
     sys.path.insert(0, str(YOLOV9_ROOT))
 
 MODEL_WEIGHTS = str(
-    PROJECT_ROOT
-    / "draft_models"
-    / "yolov9"
+    YOLOV9_ROOT
     / "runs"
     / "train"
     / "final_radimagenet_densenet121"
