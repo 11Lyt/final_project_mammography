@@ -13,8 +13,11 @@ from PIL import Image, ImageDraw, ImageFont
 # CONFIG
 # ============================================================
 
-# Folder containing this .py file
-PROJECT_ROOT = Path(__file__).resolve().parent
+# Folder containing FP_gradio_app.py
+APP_ROOT = Path(__file__).resolve().parent
+
+# working_files/
+PROJECT_ROOT = APP_ROOT.parent
 
 # Folder containing YOLOv9's models/ and utils/
 YOLOV9_ROOT = PROJECT_ROOT / "draft_models" / "yolov9"
