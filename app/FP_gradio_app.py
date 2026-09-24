@@ -20,7 +20,7 @@ APP_ROOT = Path(__file__).resolve().parent
 PROJECT_ROOT = APP_ROOT.parent
 
 # Folder containing YOLOv9's models/ and utils/
-YOLOV9_ROOT = PROJECT_ROOT / "draft_models" / "yolov9"
+YOLOV9_ROOT = PROJECT_ROOT / "yolov9"
 
 # Add YOLOv9 root to Python's import path
 if str(YOLOV9_ROOT) not in sys.path:
