@@ -1,0 +1,41 @@
+# Project dependencies for Python 3.10+.
+# Install PyTorch/torchvision wheels matching your CUDA setup first when using a GPU.
+# YOLOv9 upstream reference: https://github.com/WongKinYiu/yolov9/blob/main/requirements.txt
+
+# Model training and YOLOv9 utilities
+torch
+torchvision
+numpy
+opencv-python
+Pillow
+PyYAML
+scipy
+tqdm
+thop
+psutil
+requests
+gitpython
+tensorboard
+albumentations
+pycocotools
+
+# Preprocessing and evaluation
+pydicom
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+# Keras-to-PyTorch RadImageNet weight conversion (not needed after conversion)
+tensorflow
+
+# Notebook and inference demo
+ipython
+ipykernel
+jupyterlab
+gradio
+
+# Optional: install extra DICOM decoders if pydicom cannot decode compressed images:
+# pylibjpeg
+# pylibjpeg-libjpeg
+# pylibjpeg-openjpeg

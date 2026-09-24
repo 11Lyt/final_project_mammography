@@ -1,0 +1,43 @@
+# YOLOv9 with RadImageNet-pretrained DenseNet121 backbone
+
+nc: 2
+depth_multiple: 1.0
+width_multiple: 1.0
+anchors: 3
+
+backbone:
+  [
+    [-1, 1, RadDenseNet121Backbone, ["draft_models/radimagenet_weights/radimagenet_densenet121_selfconverted.pt", 512]], # 0
+
+    [0, 1, SelectFeature, [0, 512]], # 1 P3/8
+    [0, 1, SelectFeature, [1, 512]], # 2 P4/16
+    [0, 1, SelectFeature, [2, 512]], # 3 P5/32
+  ]
+
+head:
+  [
+    # P5
+    [3, 1, SPPELAN, [512, 256]],        # 4
+
+    [-1, 1, nn.Upsample, [None, 2, "nearest"]], # 5
+    [[-1, 2], 1, Concat, [1]],          # 6
+
+    [-1, 1, RepNCSPELAN4, [512, 512, 256, 1]], # 7
+
+    [-1, 1, nn.Upsample, [None, 2, "nearest"]], # 8
+    [[-1, 1], 1, Concat, [1]],          # 9
+
+    [-1, 1, RepNCSPELAN4, [256, 256, 128, 1]], # 10 P3
+
+    [-1, 1, ADown, [256]],              # 11
+    [[-1, 7], 1, Concat, [1]],          # 12
+
+    [-1, 1, RepNCSPELAN4, [512, 512, 256, 1]], # 13 P4
+
+    [-1, 1, ADown, [512]],              # 14
+    [[-1, 4], 1, Concat, [1]],          # 15
+    
+    [-1, 1, RepNCSPELAN4, [512, 512, 256, 1]], # 16 P5
+
+    [[10, 13, 16], 1, DDetect, [nc]],
+  ]

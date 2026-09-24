@@ -1,0 +1,124 @@
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# ----------------------------
+# Jupyter Notebook
+# ----------------------------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ----------------------------
+# IDE / Editor files
+# ----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------------
+# Operating system files
+# ----------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----------------------------
+# Python build / package files
+# ----------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ----------------------------
+# Testing / coverage
+# ----------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ----------------------------
+# ML datasets
+# Keep raw and processed medical datasets out of Git
+# ----------------------------
+CBIS-DDSM/
+INbreast/
+
+# Medical image files
+*.dcm
+*.dicom
+
+# Generated dataset images / labels
+images/
+labels/
+
+# ----------------------------
+# Model checkpoints / weights
+# ----------------------------
+draft_models/
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+
+weights/
+checkpoints/
+
+# ----------------------------
+# YOLO / training outputs
+# ----------------------------
+runs/
+results/
+wandb/
+
+# Training result files
+results*.csv
+results*.txt
+
+# ----------------------------
+# TensorBoard / logs
+# ----------------------------
+logs/
+*.log
+events.out.tfevents.*
+
+# ----------------------------
+# Temporary / generated files
+# ----------------------------
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ----------------------------
+# Colab / downloaded archives
+# ----------------------------
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# ----------------------------
+# Gradio cache / temporary files
+# ----------------------------
+gradio_cached_examples/
+flagged/
