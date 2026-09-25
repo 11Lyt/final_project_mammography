@@ -7,7 +7,7 @@ anchors: 3
 
 backbone:
   [
-    [-1, 1, RadDenseNet121Backbone, ["draft_models/radimagenet_weights/radimagenet_densenet121_selfconverted.pt", 512]], # 0
+    [-1, 1, RadDenseNet121Backbone, ["radimagenet_weights/radimagenet_densenet121_selfconverted.pt", 512]], # 0
 
     [0, 1, SelectFeature, [0, 512]], # 1 P3/8
     [0, 1, SelectFeature, [1, 512]], # 2 P4/16
